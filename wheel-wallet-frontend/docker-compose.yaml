@@ -1,0 +1,21 @@
+services:
+  nuxt-app:
+    build: .
+    container_name: wheel-wallet-frontend
+
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+      - '24678:24678'
+    environment:
+      - NUXT_PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+    command: 'npm run dev'
+    volumes:
+      - ./:/app
+    networks:
+      - nuxt-network
+networks:
+  nuxt-network:
+    driver: bridge
+
