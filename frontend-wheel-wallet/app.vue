@@ -11,6 +11,6 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div>Hello from docker!</div>
+  <div class="text-5xl">Hello from docker!</div>
   <div>Message from API: {{ messageFromApi }}</div>
 </template>
