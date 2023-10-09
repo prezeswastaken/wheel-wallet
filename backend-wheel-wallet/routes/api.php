@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('hello', function () {
+    return response()->json([
+        'hello' => 'world!',
+        'message' => 'This is a test, and it went flawlessly!'
+    ]);
+});
