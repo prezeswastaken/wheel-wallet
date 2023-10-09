@@ -49,7 +49,7 @@ services:
             retries: 3
             timeout: 5s
     adminer:
-        image: adminer
+        image: adminer:4.8.1
         restart: always
         ports:
           - 6969:8080

@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:20.8.0-bookworm
 
 ENV NODE_ENV=development
 
