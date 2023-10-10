@@ -5,24 +5,15 @@ const form = ref({
 });
 
 async function handleLogin() {
-  const cookieResponse = await useFetch(
-    "http://localhost:8000/sanctum/csrf-cookie",
-    {
-      credentials: "include",
-    },
-  );
+  await useApiFetch("/sanctum/csrf-cookie");
 
-  const token = useCookie("XSRF-TOKEN");
-
-  const loginResponse = await useFetch("http://localhost:8000/login", {
-    credentials: "include",
+  await useApiFetch("/login", {
     method: "POST",
     body: form.value,
-    headers: {
-      "X-XSRF-TOKEN": token.value as string,
-    },
   });
-  console.log(cookieResponse.status);
+
+  const { data } = await useApiFetch("/api/user");
+  console.log(data.value);
 }
 </script>
 
