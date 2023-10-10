@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink class="duration-300 hover:text-orange-400" :to="link">{{
+  <NuxtLink class="capitalize duration-300 hover:text-orange-400" :to="link">{{
     text
   }}</NuxtLink>
 </template>
