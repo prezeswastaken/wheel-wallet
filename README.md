@@ -19,3 +19,7 @@ docker run --rm \
 - install **npm dependencies** in local folder. To do this, run `docker run --rm -v ${PWD}:/app -w /app node npm install`
 - run `docker-compose up -d`
 - now you have fully functional Wheel Wallet app!
+
+
+WWWGROUP=1000
+WWWUSER=1000
