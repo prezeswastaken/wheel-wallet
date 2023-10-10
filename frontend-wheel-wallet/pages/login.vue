@@ -1,19 +1,21 @@
 <script lang="ts" setup>
+import { useAuthStore } from "~/stores/useAuthStore";
+
 const form = ref({
   email: "kaspej@o2.pl",
   password: "password",
 });
 
+const auth = useAuthStore();
+
 async function handleLogin() {
-  await useApiFetch("/sanctum/csrf-cookie");
-
-  await useApiFetch("/login", {
-    method: "POST",
-    body: form.value,
-  });
-
-  const { data } = await useApiFetch("/api/user");
-  console.log(data.value);
+  const { error } = await auth.login(form.value);
+  if (error.value != null) {
+    console.log(error);
+  } else
+    console.log(
+      `Logged in user email is ${auth.user?.email}, his id is ${auth.user?.id}, and his name is ${auth.user?.name}.`,
+    );
 }
 </script>
 
