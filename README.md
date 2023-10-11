@@ -21,5 +21,9 @@ docker run --rm \
 - now you have fully functional Wheel Wallet app!
 
 
+## Protip
+If you encounter some file permission errors while running sail, add those two lines of code to your .env file inside of **backend-wheel-wallet** folder
+```
 WWWGROUP=1000
 WWWUSER=1000
+```
