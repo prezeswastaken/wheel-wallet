@@ -1,9 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  middleware: ["auth"],
+});
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <div>Page: auth only</div>
 </template>
 
 <style scoped></style>

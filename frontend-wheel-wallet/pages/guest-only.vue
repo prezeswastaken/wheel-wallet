@@ -1,9 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  middleware: ["guest"],
+});
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <div>Page: guest only</div>
 </template>
 
 <style scoped></style>
