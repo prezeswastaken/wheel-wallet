@@ -2,8 +2,8 @@
 import { useAuthStore } from "~/stores/useAuthStore";
 
 const form = ref({
-  email: "kaspej@o2.pl",
-  password: "password",
+  email: "",
+  password: "",
 });
 
 const auth = useAuthStore();
