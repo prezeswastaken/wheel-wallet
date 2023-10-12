@@ -10,6 +10,9 @@ export default {
         "header-color": "#8bd5ca",
         "outline-color": "#181926",
       },
+      fontFamily: {
+        myMono: ["JetBrains Mono"],
+      },
     },
   },
   plugins: [],

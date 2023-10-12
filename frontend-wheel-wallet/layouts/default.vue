@@ -9,7 +9,7 @@ const auth = useAuthStore();
     <title>Wheel Wallet - keep your car budget rolling</title>
   </head>
   <div
-    class="p-10 w-screen min-h-screen font-serif bg-background-color text-text-color"
+    class="p-10 w-screen min-h-screen font-myMono bg-background-color text-text-color"
   >
     <TopBar />
     Layout: default
