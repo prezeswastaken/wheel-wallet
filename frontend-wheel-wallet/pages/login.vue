@@ -43,7 +43,7 @@ async function handleLogin() {
         placeholder="Enter your password here..."
       />
     </label>
-    <button class="text-left duration-300 hover:text-orange-300">Login</button>
+    <LoginButton />
   </form>
 </template>
 
