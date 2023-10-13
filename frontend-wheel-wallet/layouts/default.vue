@@ -13,7 +13,9 @@ const auth = useAuthStore();
   >
     <TopBar />
     Layout: default
-    <p v-if="auth.user">Hello {{ auth.user?.name }}!</p>
+    <p class="text-3xl text-header-color" v-if="auth.user">
+      Hello {{ auth.user?.name }}!
+    </p>
 
     <slot />
   </div>
