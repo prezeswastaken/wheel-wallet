@@ -23,7 +23,6 @@ export const useAuthStore = defineStore("auth", () => {
 
   async function fetchUser() {
     const { data, error } = await useApiFetch("/api/user");
-    console.log("Error from useAuthStoreFetchUser", error);
     user.value = data.value as User;
   }
 

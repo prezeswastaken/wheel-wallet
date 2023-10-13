@@ -6,21 +6,27 @@ const form = ref({
   password: "",
 });
 
+const errorMessage = ref("");
+
 const auth = useAuthStore();
 
 async function handleLogin() {
   const { error } = await auth.login(form.value);
   if (error.value != null) {
-    console.log(error);
-  } else
+    console.log("Login error: ", error.value.data.message);
+    errorMessage.value = error.value.data.message;
+  } else {
     console.log(
       `Logged in user email is ${auth.user?.email}, his id is ${auth.user?.id}, and his name is ${auth.user?.name}.`,
     );
+    errorMessage.value = "";
+  }
 }
 </script>
 
 <template>
   <div>Page: login</div>
+  <p class="text-error-color">{{ errorMessage }}</p>
   <form
     @submit.prevent="handleLogin"
     class="flex flex-col gap-5 items-start mt-5"

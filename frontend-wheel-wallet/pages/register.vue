@@ -8,21 +8,28 @@ const form = ref({
   password_confirmation: "",
 });
 
+const errorMessage = ref("");
+
 const auth = useAuthStore();
 
 async function handleRegister() {
   const { error } = await auth.register(form.value);
   if (error.value != null) {
     console.log("Error after registration: ", error);
-  } else
+    errorMessage.value = error.value.data.message;
+  } else {
     console.log(
       `Logged in user email after registration is ${auth.user?.email}, his id is ${auth.user?.id}, and his name is ${auth.user?.name}.`,
     );
+
+    errorMessage.value = "";
+  }
 }
 </script>
 
 <template>
   <div>Page: register</div>
+  <p class="text-error-color">{{ errorMessage }}</p>
   <form
     @submit.prevent="handleRegister"
     class="flex flex-col gap-5 items-start mt-5"
