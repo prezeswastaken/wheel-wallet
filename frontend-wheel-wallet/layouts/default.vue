@@ -12,7 +12,6 @@ const auth = useAuthStore();
     class="p-10 w-screen min-h-screen font-myMono bg-background-color text-text-color"
   >
     <TopBar />
-    Layout: default
     <p class="text-3xl text-header-color" v-if="auth.user">
       Hello {{ auth.user?.name }}!
     </p>

@@ -25,26 +25,33 @@ async function handleLogin() {
 </script>
 
 <template>
-  <div>Page: login</div>
   <p class="text-error-color">{{ errorMessage }}</p>
-  <form
-    @submit.prevent="handleLogin"
-    class="flex flex-col gap-5 items-start mt-5"
-  >
-    <InputField
-      :modelValue="form.email"
-      @update:modelValue="form.email = $event"
-      type="email"
-      fieldName="email"
-    />
-    <InputField
-      :modelValue="form.password"
-      @update:modelValue="form.password = $event"
-      type="password"
-      fieldName="password"
-    />
-    <LoginButton />
-  </form>
+  <div class="flex flex-col justify-center items-center p-10 w-full h-full">
+    <div
+      class="flex flex-col gap-10 items-start py-20 px-20 mt-5 text-lg rounded-3xl bg-overlay-background-color"
+    >
+      <h1 class="self-center text-7xl text-header-color">Login</h1>
+      <form @submit.prevent="handleLogin" class="flex flex-col gap-5">
+        <InputField
+          :modelValue="form.email"
+          @update:modelValue="form.email = $event"
+          type="email"
+          fieldName="email"
+          class="w-96"
+        />
+        <InputField
+          :modelValue="form.password"
+          @update:modelValue="form.password = $event"
+          type="password"
+          fieldName="password"
+          class="w-96"
+        />
+        <div class="flex justify-end mt-2">
+          <LoginButton />
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
 <style scoped></style>

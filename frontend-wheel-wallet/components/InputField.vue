@@ -30,10 +30,10 @@ defineEmits(["update:modelValue"]);
 </script>
 
 <template>
-  <label class="flex flex-col capitalize"
+  <label class="flex flex-col gap-3 capitalize"
     >{{ fieldName }}
     <input
-      class="py-2 px-5 w-72 rounded-lg border border-text-color text-text-color bg-background-color"
+      class="py-2 px-5 rounded-lg border border-text-color text-text-color bg-overlay-background-color"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :type="type"
