@@ -25,7 +25,9 @@ async function handleLogin() {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center p-10 w-full h-full">
+  <div
+    class="flex flex-col justify-center items-center p-10 py-5 w-full h-full"
+  >
     <div
       class="flex flex-col gap-10 items-start py-20 px-20 mt-5 text-lg rounded-3xl bg-overlay-background-color"
     >
