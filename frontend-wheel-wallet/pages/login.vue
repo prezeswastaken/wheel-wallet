@@ -25,7 +25,6 @@ async function handleLogin() {
 </script>
 
 <template>
-  <p class="text-error-color">{{ errorMessage }}</p>
   <div class="flex flex-col justify-center items-center p-10 w-full h-full">
     <div
       class="flex flex-col gap-10 items-start py-20 px-20 mt-5 text-lg rounded-3xl bg-overlay-background-color"
@@ -46,6 +45,7 @@ async function handleLogin() {
           fieldName="password"
           class="w-96"
         />
+        <p class="w-96 text-error-color">{{ errorMessage }}</p>
         <div class="flex justify-end mt-2">
           <LoginButton />
         </div>
