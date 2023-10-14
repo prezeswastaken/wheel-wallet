@@ -52,7 +52,7 @@ async function handleLogin() {
             to="/register"
             >Not registered yet?</NuxtLink
           >
-          <LoginButton />
+          <PrimaryButton text="sign in" />
         </div>
       </form>
     </div>
