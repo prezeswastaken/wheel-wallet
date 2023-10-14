@@ -11,12 +11,14 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="flex gap-2 text-3xl text-left">
-    Hello from
-    <p class="text-blue-500">docker!</p>
-  </div>
-  <div class="flex gap-2">
-    Message from API:
-    <p class="text-green-500">{{ messageFromApi }}</p>
+  <div>
+    <div class="flex gap-2 text-3xl text-left">
+      Hello from
+      <p class="text-blue-500">docker!</p>
+    </div>
+    <div class="flex gap-2">
+      Message from API:
+      <p class="text-green-500">{{ messageFromApi }}</p>
+    </div>
   </div>
 </template>

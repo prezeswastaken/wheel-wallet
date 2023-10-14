@@ -12,6 +12,8 @@ export default {
         "hover-color": "#A6DA95",
         "error-color": "#ed8796",
         "button-active-main-color": "#EED49F",
+        "blue-color": "#8aadf4",
+        "blue-lighter-color": "#7dc4e4",
       },
       fontFamily: {
         myMono: ["JetBrains Mono"],
