@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useAuthStore } from "~/stores/useAuthStore";
+import { ArrowRightOnRectangleIcon } from "@heroicons/vue/24/outline";
 
 const auth = useAuthStore();
 async function handleLogout() {
@@ -11,9 +12,9 @@ async function handleLogout() {
   <button
     v-if="auth.isLoggedIn"
     @click="handleLogout"
-    class="duration-300 hover:text-red-700"
+    class="duration-300 hover:text-error-color"
   >
-    Logout
+    <ArrowRightOnRectangleIcon class="w-9 h-9" />
   </button>
 </template>
 

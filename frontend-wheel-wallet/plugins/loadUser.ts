@@ -5,6 +5,5 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   if (!auth.isLoggedIn && !process.server) {
     await auth.fetchUser();
-    console.log("User fetched from plugin!", auth.user);
   }
 });

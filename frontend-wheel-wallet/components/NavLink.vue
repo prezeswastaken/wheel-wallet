@@ -1,14 +1,20 @@
 <script lang="ts" setup>
-defineProps({
+const props = defineProps({
   link: String,
   text: String,
 });
 </script>
 
 <template>
-  <NuxtLink class="capitalize duration-300 hover:text-orange-400" :to="link">{{
-    text
-  }}</NuxtLink>
+  <NuxtLink
+    class="capitalize duration-300 hover:text-3xl hover:text-hover-color"
+    :to="link"
+    >{{ text }}
+  </NuxtLink>
 </template>
 
-<style scoped></style>
+<style scoped>
+.router-link-active {
+  @apply text-header-color font-bold underline-offset-8 underline;
+}
+</style>
