@@ -31,24 +31,18 @@ async function handleLogin() {
     @submit.prevent="handleLogin"
     class="flex flex-col gap-5 items-start mt-5"
   >
-    <label class="flex flex-col"
-      >Email
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="email"
-        v-model="form.email"
-        placeholder="Enter your email here..."
-      />
-    </label>
-    <label class="flex flex-col"
-      >Password
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="password"
-        v-model="form.password"
-        placeholder="Enter your password here..."
-      />
-    </label>
+    <InputField
+      :modelValue="form.email"
+      @update:modelValue="form.email = $event"
+      type="email"
+      fieldName="email"
+    />
+    <InputField
+      :modelValue="form.password"
+      @update:modelValue="form.password = $event"
+      type="password"
+      fieldName="password"
+    />
     <LoginButton />
   </form>
 </template>

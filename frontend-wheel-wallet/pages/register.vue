@@ -35,48 +35,36 @@ async function handleRegister() {
     class="flex flex-col gap-5 items-start mt-5"
   >
     <!-- Name field -->
-    <label class="flex flex-col"
-      >Name
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="text"
-        v-model="form.name"
-        placeholder="Enter your name here..."
-      />
-    </label>
+    <InputField
+      :modelValue="form.name"
+      @update:modelValue="form.name = $event"
+      fieldName="name"
+    />
 
     <!-- Email field -->
-    <label class="flex flex-col"
-      >Email
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="email"
-        v-model="form.email"
-        placeholder="Enter your email here..."
-      />
-    </label>
+    <InputField
+      :modelValue="form.email"
+      @update:modelValue="form.email = $event"
+      fieldName="email"
+      type="email"
+    />
 
     <!-- Password field -->
-    <label class="flex flex-col"
-      >Password
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="password"
-        v-model="form.password"
-        placeholder="Enter your password here..."
-      />
-    </label>
+    <InputField
+      :modelValue="form.password"
+      @update:modelValue="form.password = $event"
+      fieldName="password"
+      type="password"
+    />
 
     <!-- Password confirmation field -->
-    <label class="flex flex-col"
-      >Password confirmation
-      <input
-        class="py-2 px-5 w-72 bg-black rounded-lg border border-orange-500"
-        type="password"
-        v-model="form.password_confirmation"
-        placeholder="Enter your password again..."
-      />
-    </label>
+    <InputField
+      :modelValue="form.password_confirmation"
+      @update:modelValue="form.password_confirmation = $event"
+      fieldName="password confirmation"
+      type="password"
+      placeholder="Enter your password again..."
+    />
     <button class="text-left duration-300 hover:text-orange-300">
       Register
     </button>
