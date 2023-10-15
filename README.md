@@ -12,7 +12,7 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 - run `./vendor/bin/sail up -d`
-- now install npm dependencies **INSIDE** of created docker container. To do this, run `./vendor/bin/sail composer install`
+- now install composer dependencies **INSIDE** of created docker container. To do this, run `./vendor/bin/sail composer install`
 - now you can check if the api is up by accessing localhost/api/hello route. If you get json response, congratulations! You have now successully run **Wheel Wallet** backend server!
 ## 2. Great! Now you have to run frontend. To do this:
 - run `cd frontend-wheel-wallet`
