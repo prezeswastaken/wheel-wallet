@@ -11,7 +11,7 @@ class Password_reset_tokenMigrationTest extends TestCase
     use RefreshDatabase;
 
    
-    public function test_expenses_table_has_expected_columns()
+    public function test_password_reset_tokens_table_has_expected_columns()
     {
        
         $this->artisan('migrate');
