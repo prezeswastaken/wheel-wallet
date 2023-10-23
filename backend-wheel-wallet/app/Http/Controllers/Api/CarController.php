@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
@@ -55,7 +56,7 @@ class CarController extends Controller
 
             $car = Car::create([
                 'model' => $request->model,
-                'owner_id' => $request->owner_id,
+                'owner_id' => Auth::user()->id,
                 'coowner_id' => $request->coowner_id,
                 'status' => $request->status,
                 'code' => strval($request->owner_id.substr(trim($request->model), 0, 3).time())
