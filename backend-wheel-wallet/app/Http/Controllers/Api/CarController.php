@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Car;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -56,8 +57,8 @@ class CarController extends Controller
 
             $car = Car::create([
                 'model' => $request->model,
-                'owner_id' => Auth::user()->id,
-                'coowner_id' => $request->coowner_id,
+                'owner_id' => $request->owner_id,
+                'coowner_id' => null,
                 'status' => $request->status,
                 'code' => strval($request->owner_id.substr(trim($request->model), 0, 3).time())
             ]);
@@ -103,6 +104,18 @@ class CarController extends Controller
                 ];
     
                 return response()->json($data, 404);
+        }
+    }
+    public function read($id){
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }else{
+        // You can then retrieve the cars associated with this user
+        $cars = Car::where('owner_id', $user->id)->get();
+    
+        return response()->json($cars);
         }
     }
 }
