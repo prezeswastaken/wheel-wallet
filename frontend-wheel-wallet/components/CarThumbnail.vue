@@ -1,9 +1,11 @@
 <script lang="ts" setup>
+import { Car } from "~/types/CarType";
 defineProps({
   imageUrl: {
     type: String,
     default: "https://i.imgflip.com/15vpit.jpg?a471432",
   },
+  car: Object as () => Car,
 });
 </script>
 
@@ -13,8 +15,11 @@ defineProps({
     <div
       class="flex absolute flex-col justify-around w-full h-full opacity-0 duration-300 group-hover:opacity-90 bg-overlay-background-color"
     >
+      <p class="text-7xl text-center">
+        {{ car?.model }}
+      </p>
       <ShowCarButton />
-      <DeleteCarButton />
+      <p></p>
     </div>
   </div>
 </template>
