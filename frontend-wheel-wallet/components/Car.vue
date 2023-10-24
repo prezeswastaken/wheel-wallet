@@ -11,8 +11,11 @@ defineProps({
   <div class="flex relative justify-center items-center group">
     <img :src="imageUrl" alt="nothing here :(" class="w-full rounded-lg" />
     <div
-      class="absolute w-full h-full opacity-90 duration-300 group-hover:bg-overlay-background-color"
-    ></div>
+      class="flex absolute flex-col justify-around w-full h-full opacity-0 duration-300 group-hover:opacity-90 bg-overlay-background-color"
+    >
+      <ShowCarButton />
+      <DeleteCarButton />
+    </div>
   </div>
 </template>
 
