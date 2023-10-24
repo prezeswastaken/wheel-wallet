@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
-  ssr: false,
+  ssr: true,
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
