@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CarController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +21,15 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('login', [AuthController::class, 'login']);
+
 Route::get('hello', function () {
     return response()->json([
         'hello' => 'world!',
         'message' => 'This is a test, and it went flawlessly!'
     ]);
 });
+
+Route::get('car', [CarController::class, 'index']);
+Route::post('car', [CarController::class, 'store']);
+Route::get('car/{id}', [CarController::class, 'show']);
