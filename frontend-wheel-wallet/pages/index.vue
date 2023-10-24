@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: ["guest"],
+});
 const messageFromApi = ref("Waiting for response from API...");
 async function fetchHello() {
   const response = await fetch("//localhost:8000/api/hello");

@@ -37,7 +37,7 @@ export const useAuthStore = defineStore("auth", () => {
     // Navigate to /auth-only ONLY if login were successful
     await fetchUser();
     if (!loginResponse.error.value) {
-      navigateTo("/auth-only");
+      navigateTo("/dashboard");
     }
     return loginResponse;
   }
@@ -52,7 +52,7 @@ export const useAuthStore = defineStore("auth", () => {
 
     await fetchUser();
     if (!registerResponse.error.value) {
-      navigateTo("/auth-only");
+      navigateTo("/dashboard");
     }
     return registerResponse;
   }
