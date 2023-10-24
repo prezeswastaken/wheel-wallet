@@ -2,19 +2,15 @@
 definePageMeta({
   middleware: ["auth"],
 });
+import { useAuthStore } from "~/stores/useAuthStore";
+import { useCarStore } from "~/stores/useCarStore";
 import { Car } from "~/types/CarType";
-const car1: Car = {
-  id: 1,
-  model: "Model S",
-  owner_id: 123,
-  coowner_id: 456,
-  status: "Active",
-  code: "XYZ",
-  created_at: "2023-10-24",
-  updated_at: "2023-10-24",
-};
-onMounted(() => {
-  console.log(car1);
+
+const carStore = useCarStore();
+const authStore = useAuthStore();
+
+onMounted(async () => {
+  await carStore.fetchCarsByUserID(authStore.user.id);
 });
 </script>
 
@@ -22,7 +18,14 @@ onMounted(() => {
   <div
     class="grid grid-cols-2 gap-10 p-10 mt-5 rounded-3xl bg-overlay-background-color"
   >
-    <CarThumbnail :car="car1" />
+    <p v-if="!carStore.hasCars" class="self-center">
+      You don't have any cars yet! Go change that, right now!
+    </p>
+    <CarThumbnail
+      v-if="carStore.hasCars"
+      v-for="car in carStore.cars"
+      :car="car"
+    />
   </div>
 </template>
 

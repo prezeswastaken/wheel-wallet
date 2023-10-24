@@ -9,7 +9,6 @@ const auth = useAuthStore();
     <NavLink v-if="!auth.isLoggedIn" link="/register" text="register" />
     <NavLink v-if="!auth.isLoggedIn" link="/login" text="login" />
     <NavLink link="/dashboard" text="dashboard" />
-    <NavLink link="/guest-only" text="guest only" />
   </div>
 </template>
 
