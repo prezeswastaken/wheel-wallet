@@ -4,13 +4,14 @@ definePageMeta({
 });
 import { useAuthStore } from "~/stores/useAuthStore";
 import { useCarStore } from "~/stores/useCarStore";
-import { Car } from "~/types/CarType";
 
 const carStore = useCarStore();
 const authStore = useAuthStore();
 
 onMounted(async () => {
-  await carStore.fetchCarsByUserID(authStore.user.id);
+  if (authStore.user != null) {
+    await carStore.fetchCarsByUserID(authStore.user.id);
+  }
 });
 </script>
 

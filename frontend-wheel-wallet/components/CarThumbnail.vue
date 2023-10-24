@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { InformationCircleIcon } from "@heroicons/vue/24/outline";
 import { Car } from "~/types/CarType";
 defineProps({
   imageUrl: {
@@ -18,7 +19,15 @@ defineProps({
       <p class="text-7xl text-center">
         {{ car?.model }}
       </p>
-      <ShowCarButton />
+      <NuxtLink
+        v-if="car?.id"
+        :to="`/car/${car.id}`"
+        class="flex justify-center items-center w-auto duration-100 group/show hover:text-hover-color"
+      >
+        <InformationCircleIcon
+          class="w-32 duration-300 group-hover/show:w-32"
+        />
+      </NuxtLink>
       <p></p>
     </div>
   </div>
