@@ -52,12 +52,8 @@ async function handleSubmit() {
         />
         <p class="w-96 text-error-color">{{ errorMessage }}</p>
         <div class="flex justify-between mt-2">
-          <NuxtLink
-            class="w-60 duration-300 text-blue-color hover:text-hover-color"
-            to="/register"
-            >Not registered yet?</NuxtLink
-          >
-          <PrimaryButton text="sign in" />
+          <p></p>
+          <PrimaryButton text="create car" />
         </div>
       </form>
     </div>
