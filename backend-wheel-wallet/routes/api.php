@@ -28,10 +28,11 @@ Route::get('hello', function () {
         'message' => 'This is a test, and it went flawlessly!'
     ]);
 });
-    Route::get('car', [CarController::class, 'index']);
-    Route::get('car/{id}', [CarController::class, 'show']);
+
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('user/{id}/cars', [CarController::class, 'read']);
     Route::post('car', [CarController::class, 'store']);
+    Route::get('car', [CarController::class, 'index']);
+    Route::get('car/{id}', [CarController::class, 'show']);
 });

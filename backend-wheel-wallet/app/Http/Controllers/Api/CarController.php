@@ -106,6 +106,7 @@ class CarController extends Controller
                 return response()->json($data, 404);
         }
     }
+
     public function read($id){
         $user = User::find($id);
 
@@ -114,8 +115,20 @@ class CarController extends Controller
         }else{
         // You can then retrieve the cars associated with this user
         $cars = Car::where('owner_id', $user->id)->get();
+        }
+        
+        if($cars!=null){
+            foreach ($cars as $car){
+                if(Auth::user()->cannot('read', $car)){
+                    return response()->json([
+                        'status' => 403,
+                        'message' => 'You do not own this car'
+                    ]);
+                }
+            }
+        }
     
         return response()->json($cars);
-        }
     }
 }
+
