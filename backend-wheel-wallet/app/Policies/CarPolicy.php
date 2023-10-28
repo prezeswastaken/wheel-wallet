@@ -17,7 +17,9 @@ class CarPolicy
     }
 
     public function before(User $user){
-        return $user->is_admin;
+        if($user->is_admin){
+            return true;
+        }
     }
 
     public function read(User $user, Car $car){
