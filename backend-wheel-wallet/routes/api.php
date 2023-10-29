@@ -35,4 +35,6 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::post('car', [CarController::class, 'store']);
     Route::get('car', [CarController::class, 'index']);
     Route::get('car/{id}', [CarController::class, 'show']);
+    Route::put('car/{id}/edit', [CarController::class, 'edit']);
+    Route::delete('car/{id}/delete', [CarController::class, 'delete']);
 });

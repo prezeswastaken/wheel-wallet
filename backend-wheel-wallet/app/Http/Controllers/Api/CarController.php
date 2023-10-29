@@ -113,7 +113,7 @@ class CarController extends Controller
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }else{
-        // You can then retrieve the cars associated with this user
+
         $cars = Car::where('owner_id', $user->id)->get();
         }
         
@@ -130,5 +130,71 @@ class CarController extends Controller
     
         return response()->json($cars);
     }
-}
+    public function edit(Request $request, $id){
+        $validator = Validator::make($request->all(),[
+            'model' => 'required|string|max:50',
+            'owner_id' => 'required',
+            'coowner_id' => '',
+            'status' => 'string|max:100'
+        ]);
 
+        if($validator->fails()){
+
+            $data = [
+                'status' => 422,
+                'errors' => $validator->messages()
+            ];
+
+            return response()->json($data, 422);
+        }
+        else{
+
+            $car = Car::find($id);
+
+            if($car){
+                
+                $car->update([
+                    'model' => $request->model,
+                    'owner_id' => $request->owner_id,
+                    'coowner_id' => null,
+                    'status' => $request->status,
+                    'code' => strval($request->owner_id.substr(trim($request->model), 0, 3).time())
+                ]);
+
+                $data = [
+                    'status' => 200,
+                    'message' => 'Car updated successfully'
+                ];
+    
+                return response()->json($data, 200);
+            }
+            else{
+
+                $data = [
+                    'status' => 404,
+                    'message' => 'No such car found'
+                ];
+    
+                return response()->json($data, 404);
+            }
+        }
+    }
+    public function delete($id){
+        $car = Car::find($id);
+        if($car){
+            $car->delete();
+            $data = [
+                'status' => 200,
+                'message' => 'Car deleted successfully'
+            ];
+            return response()->json($data, 200);
+        }else{
+            $data = [
+                'status' => 404,
+                'message' => 'No such car found'
+            ];
+
+            return response()->json($data, 404);
+        }
+    }
+}
