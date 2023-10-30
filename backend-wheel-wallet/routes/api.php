@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarController;
+use App\Http\Controllers\Api\CarPhotoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -37,4 +38,6 @@ Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::get('car/{id}', [CarController::class, 'show']);
     Route::put('car/{id}/edit', [CarController::class, 'edit']);
     Route::delete('car/{id}/delete', [CarController::class, 'delete']);
+    Route::post('car/{id}/upload', [CarPhotoController::class, 'store']);
+    Route::get('car/{id}/photos', [CarPhotoController::class, 'show']);
 });

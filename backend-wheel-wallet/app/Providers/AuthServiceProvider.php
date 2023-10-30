@@ -16,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Car::class => CarPolicy::class,
+        CarPhoto::class => CarPolicy::class,
     ];
 
     /**
