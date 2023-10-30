@@ -113,7 +113,6 @@ class CarController extends Controller
         if (!$user) {
             return response()->json(['message' => 'User not found'], 404);
         }else{
-
         $cars = Car::where('owner_id', $user->id)->get();
         }
         
@@ -151,6 +150,13 @@ class CarController extends Controller
 
             $car = Car::find($id);
 
+            if(Auth::user()->cannot('read', $car)){
+                return response()->json([
+                    'status' => 403,
+                    'message' => 'You do not own this car'
+                ]);
+            }
+            else{
             if($car){
                 
                 $car->update([
@@ -176,18 +182,28 @@ class CarController extends Controller
                 ];
     
                 return response()->json($data, 404);
+                }
             }
         }
     }
     public function delete($id){
         $car = Car::find($id);
+
         if($car){
+            if(Auth::user()->cannot('read', $car)){
+                return response()->json([
+                    'status' => 403,
+                    'message' => 'You do not own this car'
+                ]);
+            }
+            else{
             $car->delete();
             $data = [
                 'status' => 200,
                 'message' => 'Car deleted successfully'
             ];
             return response()->json($data, 200);
+        }
         }else{
             $data = [
                 'status' => 404,
