@@ -16,7 +16,7 @@ docker run --rm \
 - now you can check if the api is up by accessing localhost/api/hello route. If you get json response, congratulations! You have now successully run **Wheel Wallet** backend server!
 ## 2. Great! Now you have to run frontend. To do this:
 - run `cd frontend-wheel-wallet`
-- install **npm dependencies** in local folder. To do this, run `docker run --rm -v ${PWD}:/app -w /app node npm install`
+- install **node dependencies** in local folder. To do this, run `docker run --rm -v ${PWD}:/app -w /app oven/bun bun install`
 - run `docker-compose up -d`
 - now you have fully functional Wheel Wallet app!
 
