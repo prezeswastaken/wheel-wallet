@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { InformationCircleIcon } from "@heroicons/vue/24/outline";
-import { Car } from "~/types/CarType";
+import type { Car } from "~/types/CarType";
 defineProps({
   imageUrl: {
     type: String,
