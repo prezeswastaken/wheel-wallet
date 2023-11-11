@@ -1,7 +1,7 @@
 import type { UseFetchOptions } from "nuxt/app";
 
 export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
-  let headers: any = {};
+  let headers: any = { referer: "https://wheelwallet.cloud" };
   const token = useCookie("XSRF-TOKEN");
 
   if (token.value) {
