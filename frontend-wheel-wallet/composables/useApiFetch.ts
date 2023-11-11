@@ -11,7 +11,7 @@ export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
   if (process.server) {
     headers = {
       ...headers,
-      ...useRequestHeaders(["referer", "cookie"]),
+      ...useRequestHeaders(["cookie"]),
     };
   }
   return useFetch(`https://backend.wheelwallet.cloud${path}`, {
