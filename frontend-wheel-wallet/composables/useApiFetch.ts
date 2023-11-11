@@ -1,9 +1,7 @@
 import type { UseFetchOptions } from "nuxt/app";
 
 export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
-  let headers: any = {
-    referer: "https://coral-app-zmqgc.ondigitalocean.app",
-  };
+  let headers: any = {};
   const token = useCookie("XSRF-TOKEN");
 
   if (token.value) {
@@ -13,7 +11,7 @@ export function useApiFetch<T>(path: string, options: UseFetchOptions<T> = {}) {
   if (process.server) {
     headers = {
       ...headers,
-      ...useRequestHeaders(["cookie"]),
+      ...useRequestHeaders(["referer", "cookie"]),
     };
   }
   return useFetch(`https://wheelwallet.cloud${path}`, {
